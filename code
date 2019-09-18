@@ -1,0 +1,22 @@
+function palindromeRearranging(inputString) {
+   //variable that will count number of times odd values are obtained 
+   //as total of the number of times they are appearing on the string
+   var count = 0;
+   //loops through untill all the words from the string are counted an removed from the string
+   for(;inputString.length!=0;){
+      //sorts out the number of times a certain specific word occurs
+      //on the string 
+      var regex = new RegExp(inputString[0],'gi');
+      var total = inputString.length-(inputString.replace(regex,'').length);
+      inputString=inputString.replace(regex,'');
+      //checks out how many times odd value of string appearances occurs
+      //and if they exceed the process is stoped and a false value is returned
+      if(total%2==1){
+         count++;
+      }
+      if(count>1){
+         return false;
+      }
+   }
+   return true;
+}
